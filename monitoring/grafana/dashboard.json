@@ -1,0 +1,33 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Multimodal Sentiment Analyzer",
+    "timezone": "browser",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "Request Latency (seconds)",
+        "targets": [
+          {
+            "expr": "flask_http_request_duration_seconds_bucket{le=\"1\"}",
+            "refId": "A"
+          }
+        ],
+        "gridPos": { "x": 0, "y": 0, "w": 24, "h": 8 }
+      },
+      {
+        "type": "graph",
+        "title": "Prediction Requests per Second",
+        "targets": [
+          {
+            "expr": "rate(flask_http_request_total[1m])",
+            "refId": "B"
+          }
+        ],
+        "gridPos": { "x": 0, "y": 8, "w": 24, "h": 8 }
+      }
+    ],
+    "schemaVersion": 30,
+    "version": 1
+  }
+}
